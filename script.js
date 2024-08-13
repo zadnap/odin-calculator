@@ -43,6 +43,12 @@ container.addEventListener('click', (e) => {
             case 'sign':
                 sign()
                 break;
+            case 'percent':
+                percent()
+                break;
+            case 'dot':
+                dot()
+                break;
             default:
                 break;
         }
@@ -115,6 +121,32 @@ function sign() {
     }
     else if (operand1) {
         operand1 = -Number(operand1)
+        screen.textContent = operand1
+        return
+    }
+}
+
+function percent() {
+    if (operand2) {
+        operand2 = Number(operand2) / 100
+        screen.textContent = operand2
+        return
+    }
+    else if (operand1) {
+        operand1 = Number(operand1) / 100
+        screen.textContent = operand1
+        return
+    }
+}
+
+function dot() {
+    if (operand2) {
+        operand2 += '.'
+        screen.textContent = operand2
+        return
+    }
+    else if (operand1) {
+        operand1 += '.'
         screen.textContent = operand1
         return
     }
